@@ -11,7 +11,7 @@ function unindent(string){
 
   for (let j = 0; j < lines.length; j++){
     if (j === 0){
-      amountOfSpaces = line.split(" ").length - 1;
+      amountOfSpaces = lines[0].split(" ").length - 1;
       if (amountOfSpaces === 0) break;
     } else {
       lines[j] = lines[j].substring(amountOfSpaces);
