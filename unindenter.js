@@ -20,9 +20,9 @@ function unindent(string){
       }
       
       if (amountOfSpaces === 0) break;
-    } else {
-      lines[i] = currentLine.substring(amountOfSpaces);
     }
+    
+    lines[i] = currentLine.substring(amountOfSpaces);
   }
 
   return lines.join("\n");
