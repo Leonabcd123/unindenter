@@ -1,9 +1,14 @@
 window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("submit").addEventListener("click", () => {
-    let stringToUnindent = document.getElementById("inputString").value;
+    let stringToUnindent = document.getElementById("input").value;
     const unindentedString = unindent(stringToUnindent);
-    let resultTextArea = document.getElementById("result");
+    let resultTextArea = document.getElementById("output");
     resultTextArea.value = unindentedString;
+  });
+
+  document.getElementById("reset").addEventListener("click", () => {
+    document.getElementById("input").value = "";
+    document.getElementById("output").value = "";
   });
 });
 
