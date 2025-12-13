@@ -10,11 +10,12 @@ function unindent(string){
   let amountOfSpaces = 0;
 
   for (let j = 0; j < lines.length; j++){
+    const currentLine = lines[j];
     if (j === 0){
-      amountOfSpaces = lines[0].split(" ").length - 1;
+      amountOfSpaces = currentLine.split(" ").length - 1;
       if (amountOfSpaces === 0) break;
     } else {
-      lines[j] = lines[j].substring(amountOfSpaces);
+      lines[j] = currentLine.substring(amountOfSpaces);
     }
   }
 
