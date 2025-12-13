@@ -1,8 +1,10 @@
-document.getElementById("submit").addEventListener("click", () => {
-  let stringToUnindent = document.getElementById("inputString").value;
-  const unindentedString = unindent(stringToUnindent);
-  let resultTextArea = document.getElementById("result");
-  resultTextArea.value = unindentedString;
+window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("submit").addEventListener("click", () => {
+    let stringToUnindent = document.getElementById("inputString").value;
+    const unindentedString = unindent(stringToUnindent);
+    let resultTextArea = document.getElementById("result");
+    resultTextArea.value = unindentedString;
+  });
 });
 
 function getNumOfLeadingSpaces(string, limit){
