@@ -9,13 +9,18 @@ function unindent(string){
   let lines = string.split("\n");
   let amountOfSpaces = 0;
 
-  for (let j = 0; j < lines.length; j++){
+  for (let i = 0; i < lines.length; i++){
     const currentLine = lines[j];
-    if (j === 0){
-      amountOfSpaces = currentLine.split(" ").length - 1;
+    if (i === 0){
+      let j = 0;
+      
+      while (currentLine[j] === " " || currentLine[j] === "\t"){
+        amountOfSpaces++;
+      }
+      
       if (amountOfSpaces === 0) break;
     } else {
-      lines[j] = currentLine.substring(amountOfSpaces);
+      lines[i] = currentLine.substring(amountOfSpaces);
     }
   }
 
