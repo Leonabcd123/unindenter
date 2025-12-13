@@ -12,9 +12,10 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function getNumOfLeadingSpaces(string, limit){
+function getNumOfLeadingSpaces(line: string, limit: number){
   let i = 0;
-  while (string[i] === " " || string[i] === "\t"){
+
+  while (line[i] === " " || line[i] === "\t"){
       if (limit > 0 && i >= limit) break;
       i++;
   }
@@ -22,8 +23,8 @@ function getNumOfLeadingSpaces(string, limit){
   return i;
 }
 
-function unindent(string){
-  let lines = string.split("\n");
+function unindent(inputString: string){
+  let lines = inputString.split("\n");
   let numOfSpaces = 0;
 
   for (let i = 0; i < lines.length; i++){
