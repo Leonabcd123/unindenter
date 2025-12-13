@@ -5,9 +5,10 @@ function handleSubmit() {
   resultTextArea.value = unindentedString;
 }
 
-function getNumOfLeadingSpaces(string){
+function getNumOfLeadingSpaces(string, limit){
   let i = 0;
   while (string[i] === " " || string[i] === "\t"){
+      if (limit > 0 && i >= limit) break;
       i++;
   }
 
@@ -20,14 +21,14 @@ function unindent(string){
 
   for (let i = 0; i < lines.length; i++){
     const currentLine = lines[i];
-    const numOfLeadingSpaces = getNumOfLeadingSpaces(currentLine);
+    const numOfLeadingSpaces = getNumOfLeadingSpaces(currentLine, numOfSpaces);
 
     if (i === 0){
       numOfSpaces = numOfLeadingSpaces;
       if (numOfSpaces === 0) break;
     }
 
-    lines[i] = currentLine.substring(numOfLeadingSpaces < numOfSpaces ? numOfLeadingSpaces : numOfSpaces);
+    lines[i] = currentLine.substring(numOfLeadingSpaces);
   }
 
   return lines.join("\n");
