@@ -1,9 +1,9 @@
-function handleSubmit() {
+document.addEventListener("click", () => {
   let stringToUnindent = document.getElementById("inputString").value;
   const unindentedString = unindent(stringToUnindent);
   let resultTextArea = document.getElementById("result");
   resultTextArea.value = unindentedString;
-}
+});
 
 function getNumOfLeadingSpaces(string, limit){
   let i = 0;
