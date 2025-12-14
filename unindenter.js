@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function getNumOfLeadingSpaces(line: string, limit: number){
+function getNumOfLeadingSpaces(line, limit){
   let i = 0;
 
   while (line[i] === " " || line[i] === "\t"){
@@ -23,7 +23,7 @@ function getNumOfLeadingSpaces(line: string, limit: number){
   return i;
 }
 
-function unindent(inputString: string){
+function unindent(inputString){
   let lines = inputString.split("\n");
   let numOfSpaces = 0;
 
