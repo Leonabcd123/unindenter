@@ -3,9 +3,11 @@ window.addEventListener("DOMContentLoaded", () => {
   const outputEl = document.getElementById("output");
   const submitEl = document.getElementById("submit");
   const resetEl = document.getElementById("reset");
+  const removeAllIndentationEl = document.getElementById("removeAllIndentation");
   
   submitEl.addEventListener("click", () => {
-    outputEl.value = unindent(inputEl.value);
+    const removeAllIndentation = removeAllIndentationEl.checked;
+    outputEl.value = unindent(inputEl.value, removeAllIndentation);
   });
 
   resetEl.addEventListener("click", () => {
@@ -25,7 +27,7 @@ function getNumOfLeadingSpaces(line, limit){
   return i;
 }
 
-function unindent(inputString){
+function unindent(inputString, removeAllIndentation){
   let lines = inputString.split("\n");
   let numOfSpaces = 0;
 
@@ -33,7 +35,7 @@ function unindent(inputString){
     const currentLine = lines[i];
     const numOfLeadingSpaces = getNumOfLeadingSpaces(currentLine, numOfSpaces);
 
-    if (i === 0){
+    if (i === 0 && !removeAllIndentation){
       numOfSpaces = numOfLeadingSpaces;
       if (numOfSpaces === 0) break;
     }
