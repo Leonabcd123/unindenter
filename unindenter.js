@@ -1,9 +1,9 @@
-const inputEl = document.getElementById("input");
-const outputEl = document.getElementById("output");
-const submitEl = document.getElementById("submit");
-const resetEl = document.getElementById("reset");
-
 window.addEventListener("DOMContentLoaded", () => {
+  const inputEl = document.getElementById("input");
+  const outputEl = document.getElementById("output");
+  const submitEl = document.getElementById("submit");
+  const resetEl = document.getElementById("reset");
+  
   submitEl.addEventListener("click", () => {
     let stringToUnindent = inputEl.value;
     const unindentedString = unindent(stringToUnindent);
