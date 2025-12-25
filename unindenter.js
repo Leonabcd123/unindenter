@@ -5,9 +5,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const resetEl = document.getElementById("reset");
   
   submitEl.addEventListener("click", () => {
-    let stringToUnindent = inputEl.value;
-    const unindentedString = unindent(stringToUnindent);
-    outputEl.value = unindentedString;
+    outputEl.value = unindent(inputEl.value);
   });
 
   resetEl.addEventListener("click", () => {
