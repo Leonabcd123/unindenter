@@ -1,14 +1,18 @@
+const inputEl = document.getElementById("input");
+const outputEl = document.getElementById("output");
+const submitEl = document.getElementById("submit");
+const resetEl = document.getElementById("reset");
+
 window.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("submit").addEventListener("click", () => {
-    let stringToUnindent = document.getElementById("input").value;
+  submitEl.addEventListener("click", () => {
+    let stringToUnindent = inputEl.value;
     const unindentedString = unindent(stringToUnindent);
-    let resultTextArea = document.getElementById("output");
-    resultTextArea.value = unindentedString;
+    outputEl.value = unindentedString;
   });
 
-  document.getElementById("reset").addEventListener("click", () => {
-    document.getElementById("input").value = "";
-    document.getElementById("output").value = "";
+  resetEl.addEventListener("click", () => {
+    inputEl.value = "";
+    outputEl.value = "";
   });
 });
 
