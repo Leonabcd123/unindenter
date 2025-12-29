@@ -26,6 +26,6 @@ window.addEventListener("DOMContentLoaded", () => {
     } else {
       manualUnindentInputEl.style.display = "";
     }
-  }
+  });
 });
 
