@@ -38,9 +38,13 @@ function unindent(inputString, removeAllIndentation, manualUnindentAmount){
 
     const numOfLeadingSpaces = getNumOfLeadingSpaces(currentLine, numOfSpaces);
 
-    if (i === 0 && !removeAllIndentation){
-      numOfSpaces = numOfLeadingSpaces;
-      if (numOfSpaces === 0) break;
+    if (i === 0){
+      if (removeAllIndentation){
+        numOfSpaces = 0;
+      } else {
+        numOfSpaces = numOfLeadingSpaces;
+        if (numOfSpaces === 0) break;
+      }
     }
 
     lines[i] = currentLine.substring(numOfLeadingSpaces);
