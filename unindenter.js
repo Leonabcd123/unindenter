@@ -4,10 +4,12 @@ window.addEventListener("DOMContentLoaded", () => {
   const submitEl = document.getElementById("submit");
   const resetEl = document.getElementById("reset");
   const removeAllIndentationEl = document.getElementById("removeAllIndentation");
+  const manualUnindentEl = document.getElementById("manualUnindent");
   
   submitEl.addEventListener("click", () => {
     const removeAllIndentation = removeAllIndentationEl.checked;
-    outputEl.value = unindent(inputEl.value, removeAllIndentation);
+    const manualUnindentAmount = manualUnindentEl.value;
+    outputEl.value = unindent(inputEl.value, removeAllIndentation, manualUnindentAmount);
   });
 
   resetEl.addEventListener("click", () => {
@@ -27,12 +29,13 @@ function getNumOfLeadingSpaces(line, limit){
   return i;
 }
 
-function unindent(inputString, removeAllIndentation){
+function unindent(inputString, removeAllIndentation, manualUnindentAmount){
   let lines = inputString.split("\n");
-  let numOfSpaces = 0;
+  let numOfSpaces = manualUnindentAmount ? manualUnindentAmount : 0;
 
   for (let i = 0; i < lines.length; i++){
     const currentLine = lines[i];
+
     const numOfLeadingSpaces = getNumOfLeadingSpaces(currentLine, numOfSpaces);
 
     if (i === 0 && !removeAllIndentation){
