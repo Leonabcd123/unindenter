@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", () => {
   
   submitEl.addEventListener("click", () => {
     const removeAllIndentation = removeAllIndentationEl.checked;
-    const manualUnindentAmount = manualUnindentInputEl.value;
+    const manualUnindentAmount = manualUnindentEl.checked ? manualUnindentInputEl.value : null;
     outputEl.value = unindent(inputEl.value, removeAllIndentation, manualUnindentAmount);
   });
 
