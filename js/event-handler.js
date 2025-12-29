@@ -22,9 +22,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
   manualUnindentEl.addEventListener("click", () => {
     if (manualUnindentEl.checked){
-      manualUnindentInputEl.style.display = "none";
-    } else {
       manualUnindentInputEl.style.display = "";
+    } else {
+      manualUnindentInputEl.style.display = "none";
     }
   });
 });
