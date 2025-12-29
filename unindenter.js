@@ -22,7 +22,7 @@ function getNumOfLeadingSpaces(line, limit){
   let i = 0;
 
   while (line[i] === " " || line[i] === "\t"){
-      if (limit > 0 && i >= limit) break;
+      if (limit !== null && i >= limit) break;
       i++;
   }
 
@@ -31,7 +31,7 @@ function getNumOfLeadingSpaces(line, limit){
 
 function unindent(inputString, removeAllIndentation, manualUnindentAmount){
   let lines = inputString.split("\n");
-  let numOfSpaces = manualUnindentAmount && !removeAllIndentation ? manualUnindentAmount : 0;
+  let numOfSpaces = manualUnindentAmount && !removeAllIndentation ? manualUnindentAmount : null;
 
   for (let i = 0; i < lines.length; i++){
     const currentLine = lines[i];
