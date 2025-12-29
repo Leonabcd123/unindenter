@@ -6,11 +6,12 @@ window.addEventListener("DOMContentLoaded", () => {
   const submitEl = document.getElementById("submit");
   const resetEl = document.getElementById("reset");
   const removeAllIndentationEl = document.getElementById("removeAllIndentation");
-  const manualUnindentEl = document.getElementById("manualUnindent");
+  const manualUnindentEl = document.getElementById("manualUnindentCheckbox");
+  const manualUnindentInputEl = document.getElementById("manualUnindent");
   
   submitEl.addEventListener("click", () => {
     const removeAllIndentation = removeAllIndentationEl.checked;
-    const manualUnindentAmount = manualUnindentEl.value;
+    const manualUnindentAmount = manualUnindentInputEl.value;
     outputEl.value = unindent(inputEl.value, removeAllIndentation, manualUnindentAmount);
   });
 
@@ -18,5 +19,13 @@ window.addEventListener("DOMContentLoaded", () => {
     inputEl.value = "";
     outputEl.value = "";
   });
+
+  manualUnindentEl.addEventListener("click", () => {
+    if (manualUnindentEl.checked){
+      manualUnindentInputEl.style.display = "none";
+    } else {
+      manualUnindentInputEl.style.display = "";
+    }
+  }
 });
 
